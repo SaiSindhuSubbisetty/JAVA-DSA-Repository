@@ -1,0 +1,94 @@
+Sorting Algorithms:
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+//Bubble Sort
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int arr[] = {3,6,5,1,9,45,20};
+        //bubble(arr);
+        //selection(arr);
+        insertion(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+    static void insertion(int[] arr){
+        for(int i=0;i<arr.length-1;i++)
+        {
+            for(int j=i+1;j>0;j--)
+            {
+                if(arr[j] < arr[j-1])
+                {
+                    swap(arr,j,j-1);
+                }
+            }
+        }
+    }
+    static void selection(int[] arr){
+        for(int i=0;i<arr.length;i++)
+        {
+            int last = arr.length-i-1;
+            int maxIndex = getMaxIndex(arr,0,last);
+            swap(arr,maxIndex,last);
+            
+        }
+    }
+    static int getMaxIndex(int[] arr, int start,int end){
+        int max = start;
+        for(int i=start;i<=end;i++)
+        {
+            if(arr[max] < arr[i]){
+                max = i;
+            }
+        }
+        return max;
+        
+    }
+    static void bubble(int[] arr){
+        for(int i=0;i<arr.length;i++)
+        {
+            for(int j=1;j<arr.length-i;j++){
+                if(arr[j] < arr[j-1]){
+                    swap(arr,j,j-1);
+                }
+            }
+        }
+    }
+    static void swap(int[] arr,int start,int end){
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+    }
+}
+
+=======================================================================
+Time & Space Complexities
+🔹 Bubble Sort
+
+Best Case (Already Sorted):
+Time = O(n) (if optimized with a swap check; without optimization, it’s O(n²))
+
+Average Case: O(n²)
+
+Worst Case: O(n²)
+
+Space Complexity: O(1) (in-place)
+
+🔹 Selection Sort
+
+Best Case: O(n²) (no matter what, it scans the unsorted array)
+
+Average Case: O(n²)
+
+Worst Case: O(n²)
+
+Space Complexity: O(1) (in-place)
+
+🔹 Insertion Sort
+
+Best Case (Already Sorted): O(n)
+
+Average Case: O(n²)
+
+Worst Case (Reverse Sorted): O(n²)
+
+Space Complexity: O(1) (in-place)
