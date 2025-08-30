@@ -1,0 +1,67 @@
+//Cyclic Sort
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int arr[] = {5,4,3,2,1};
+        cyclicSort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+    static void cyclicSort(int[] arr){
+        int i =0;
+        while(i < arr.length){
+            int correct = arr[i]-1;    //value-1
+            if(arr[i] != arr[correct]){
+                swap(arr,i,correct);
+            }
+            else{
+                i++;
+            }
+        }
+    }
+    static void swap(int[] arr,int start,int end){
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+    }
+}
+
+
+🔹 Cyclic Sort (for arrays containing numbers 1..n without duplicates)
+Time Complexity
+
+Each element is swapped at most once into its correct position.
+
+The while loop runs n times, and swaps move elements directly into their final place.
+
+So:
+
+Best Case: O(n) (already sorted, only comparisons, no swaps)
+
+Average Case: O(n)
+
+Worst Case: O(n) (every element is misplaced, but still only one swap per element)
+
+✅ Overall: O(n)
+
+Space Complexity
+
+Sorting is done in-place, only a few variables (i, correct, temp) are used.
+
+So:
+
+Space = O(1)
+
+📊 Complexity Table
+Case	Time Complexity	Space Complexity
+Best Case	O(n)	O(1)
+Average Case	O(n)	O(1)
+Worst Case	O(n)	O(1)
+
+⚡ That’s why Cyclic Sort is super efficient for problems like:
+
+Missing Number
+
+Find All Duplicates
+
+Find All Missing Numbers
+(because it places each number in its correct index).
